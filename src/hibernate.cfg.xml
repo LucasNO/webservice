@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://${env.OPENSHIFT_MYSQL_DB_HOST}:${env.OPENSHIFT_MYSQL_DB_PORT}/${env‌.OPENSHIFT_APP_NAME}</property>
+		<property name="hibernate.connection.username">${env.OPENSHIFT_MYSQL_DB_USERNAME}</property>
+		<property name="hibernate.connection.password">${env.OPENSHIFT_MYSQL_DB_PASSWORD}</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">false</property>
+		<property name="hbm2ddl.auto">update</property>
+
+		<property name="hibernate.c3p0.acquire_increment">5</property>
+		<property name="hibernate.c3p0.idle_test_period">100</property>
+		<property name="hibernate.c3p0.max_size">100</property>
+		<property name="hibernate.c3p0.max_statements">10</property>
+		<property name="hibernate.c3p0.min_size">10</property>
+		<property name="hibernate.c3p0.timeout">100</property>
+
+		<mapping class="com.tg.webservice.model.Cidade" />
+		<mapping class="com.tg.webservice.model.Comentarios" />
+		<mapping class="com.tg.webservice.model.Estado" />
+		<mapping class="com.tg.webservice.model.Linhas" />
+		<mapping class="com.tg.webservice.model.PosicaoOnibus" />
+		<mapping class="com.tg.webservice.model.Usuario" />
+	</session-factory>
+</hibernate-configuration>
